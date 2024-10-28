@@ -39,3 +39,7 @@ $ docker-compose up
 - [X] Docker
 - [X] Grafana
 - [X] Sequalize
+- [X] Jest
+
+## Migrations
+<p>Check README.md on database directory</p>

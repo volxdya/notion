@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "qwerty",
+    "database": "notion",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "qwerty",
+    "database": "notion",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "qwerty",
+    "database": "notion",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
