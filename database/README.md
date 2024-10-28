@@ -39,7 +39,7 @@ module.exports = {
 
   // delete column
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn('users', 'newColumn');
+    await queryInterface.removeColumn('NAME OF MODEL', 'NAME OF COLUMN');
   }
 };
 ```

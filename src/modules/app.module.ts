@@ -2,7 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { POSTGRES_CONFIG } from 'cfg/postgres.config';
-import { UserModule } from 'src/user/user.module';
+import { UserModule } from 'src/modules/user/user.module';
+import { NoteModule } from './note/note.module';
+import { AuthModule } from './auth/auth.module';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -10,7 +13,10 @@ import { UserModule } from 'src/user/user.module';
     ConfigModule.forRoot({
       envFilePath: '.env'
     }),
-    UserModule
+    UserModule,
+    NoteModule,
+    AuthModule,
+    JwtModule
   ],
 })
 export class AppModule { }

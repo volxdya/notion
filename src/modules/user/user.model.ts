@@ -1,4 +1,5 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { NoteModel } from "../note/note.model";
 
 interface IUserModel {
     userName: string;
@@ -17,6 +18,9 @@ export class UserModel extends Model<UserModel, IUserModel> {
     @Column({ type: DataType.STRING, allowNull: false })
     password: string;
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING, defaultValue: '' })
     avatarUrl: string;
+
+    @HasMany(() => NoteModel)
+    notes: NoteModel[]
 }

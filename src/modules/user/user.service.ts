@@ -10,4 +10,12 @@ export class UserService {
     async create(dto: CreateUserDto) {
         return this.userModel.create(dto);
     }
+
+    async getOne(userName: string) {
+        return this.userModel.findOne({ where: { userName } });
+    }
+
+    async getAll() {
+        return this.userModel.findAll();
+    }
 }
