@@ -21,3 +21,25 @@ $ npx sequelize-cli db:migrate:undo
 ```bash
 $ npx sequelize-cli db:migrate:undo:all
 ```
+
+## Example migration file
+
+```bash
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  // create column
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.addColumn('NAME OF MODEL', 'NAME OF COLUMN', {
+      type: Sequelize.STRING,
+      allowNull: true,
+    });
+  },
+
+  // delete column
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.removeColumn('users', 'newColumn');
+  }
+};
+```
