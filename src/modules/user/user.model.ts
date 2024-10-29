@@ -1,5 +1,7 @@
-import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { BelongsToMany, Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
 import { NoteModel } from "../note/note.model";
+import { GroupModel } from "../group/group.model";
+import { UserGroupsModel } from "../group/user-groups.model";
 
 interface IUserModel {
     userName: string;
@@ -22,5 +24,11 @@ export class UserModel extends Model<UserModel, IUserModel> {
     avatarUrl: string;
 
     @HasMany(() => NoteModel)
-    notes: NoteModel[]
+    notes: NoteModel[];
+
+    @HasMany(() => GroupModel)
+    ownerGroups: GroupModel;
+
+    @BelongsToMany(() => GroupModel, () => UserGroupsModel)
+    groups: GroupModel[];
 }

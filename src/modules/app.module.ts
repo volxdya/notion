@@ -6,6 +6,7 @@ import { UserModule } from 'src/modules/user/user.module';
 import { NoteModule } from './note/note.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
+import { GroupModule } from './group/group.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { JwtModule } from '@nestjs/jwt';
     UserModule,
     NoteModule,
     AuthModule,
-    JwtModule
+    JwtModule,
+    GroupModule
   ],
 })
 export class AppModule { }

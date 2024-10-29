@@ -23,6 +23,7 @@ $ npm run start:prod
 ```
 
 ## <a href="https://www.docker.com/">Docker</a>
+<p>Now, when you run the project again, the database will be created. I'll fix it soon</p>
 
 ```bash
 # build 
@@ -42,4 +43,4 @@ $ docker-compose up
 - [X] Jest
 
 ## Migrations
-<p>Check README.md on database directory</p>
+<p>Check <a href="https://github.com/volxdya/notion/blob/main/database/README.md">README.md</a> on database directory</p>

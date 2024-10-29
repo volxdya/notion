@@ -15,7 +15,11 @@ export class UserService {
         return this.userModel.findOne({ where: { userName } });
     }
 
+    async getById(userId: number) {
+        return this.userModel.findOne({ where: { id: userId }, include: { all: true } });
+    }
+
     async getAll() {
-        return this.userModel.findAll();
+        return this.userModel.findAll({ include: { all: true } });
     }
 }
