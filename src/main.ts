@@ -1,5 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './modules/app.module';
+import { ValidationPipe } from '@nestjs/common';
+import { HttpExceptionFilter } from './filters/http-exception.filter';
 
 declare const module: any;
 
@@ -9,6 +11,9 @@ async function bootstrap() {
   await app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
   });
+
+  app.useGlobalFilters(new HttpExceptionFilter())
+  app.useGlobalPipes(new ValidationPipe());
 
   if (module.hot) {
     module.hot.accept();
