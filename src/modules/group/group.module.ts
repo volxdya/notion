@@ -6,10 +6,11 @@ import { UserModel } from '../user/user.model';
 import { GroupModel } from './group.model';
 import { UserGroupsModel } from './user-groups.model';
 import { UserModule } from '../user/user.module';
+import { InviteModel } from '../invite/invite.model';
 
 @Module({
   imports: [
-    SequelizeModule.forFeature([UserModel, GroupModel, UserGroupsModel]),
+    SequelizeModule.forFeature([UserModel, GroupModel, UserGroupsModel, InviteModel]),
     UserModule
   ],
   controllers: [GroupController],

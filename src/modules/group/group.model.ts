@@ -1,6 +1,7 @@
-import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { UserModel } from "../user/user.model";
 import { UserGroupsModel } from "./user-groups.model";
+import { InviteModel } from "../invite/invite.model";
 
 interface IGroupModel {
     title: string;
@@ -24,4 +25,7 @@ export class GroupModel extends Model<GroupModel, IGroupModel> {
 
     @BelongsToMany(() => UserModel, () => UserGroupsModel)
     users: UserModel[];
+
+    @HasMany(() => InviteModel)
+    invites: InviteModel[];
 }

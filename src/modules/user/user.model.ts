@@ -2,6 +2,7 @@ import { BelongsToMany, Column, DataType, HasMany, Model, Table } from "sequeliz
 import { NoteModel } from "../note/note.model";
 import { GroupModel } from "../group/group.model";
 import { UserGroupsModel } from "../group/user-groups.model";
+import { InviteModel } from "../invite/invite.model";
 
 interface IUserModel {
     userName: string;
@@ -28,6 +29,9 @@ export class UserModel extends Model<UserModel, IUserModel> {
 
     @HasMany(() => GroupModel)
     ownerGroups: GroupModel;
+
+    @HasMany(() => InviteModel)
+    invites: InviteModel[];
 
     @BelongsToMany(() => GroupModel, () => UserGroupsModel)
     groups: GroupModel[];

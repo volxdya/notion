@@ -7,6 +7,7 @@ import { NoteModule } from './note/note.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { GroupModule } from './group/group.module';
+import { InviteModule } from './invite/invite.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { GroupModule } from './group/group.module';
     NoteModule,
     AuthModule,
     JwtModule,
-    GroupModule
+    GroupModule,
+    InviteModule
   ],
 })
 export class AppModule { }

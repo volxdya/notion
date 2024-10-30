@@ -1,6 +1,7 @@
 import { SequelizeModuleOptions } from "@nestjs/sequelize";
 import { GroupModel } from "src/modules/group/group.model";
 import { UserGroupsModel } from "src/modules/group/user-groups.model";
+import { InviteModel } from "src/modules/invite/invite.model";
 import { NoteModel } from "src/modules/note/note.model";
 import { UserModel } from "src/modules/user/user.model";
 
@@ -14,5 +15,5 @@ export const POSTGRES_CONFIG: SequelizeModuleOptions = {
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DATEBASE,
     autoLoadModels: true,
-    models: [UserModel, NoteModel, GroupModel, UserGroupsModel],
+    models: [UserModel, NoteModel, GroupModel, UserGroupsModel, InviteModel],
 }
