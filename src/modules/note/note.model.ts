@@ -7,7 +7,7 @@ interface INoteModel {
     userId: number;
 }
 
-interface INoteStatus {
+export interface INoteStatus {
     id: number;
     status: string;
 }

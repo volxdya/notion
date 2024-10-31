@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { NoteModel } from './note.model';
+import { INoteStatus, NoteModel, noteStatutes } from './note.model';
 import { CreateNoteDto } from './dto/CreateNoteDto';
 
 @Injectable()
@@ -13,5 +13,16 @@ export class NoteService {
 
     async getAll() {
         return this.noteModel.findAll({ include: { all: true } });
+    }
+
+    async changeStatusNote(noteId: number) {
+        const note: NoteModel = await this.noteModel.findOne({ where: { id: noteId } });
+        const statuses: INoteStatus[] = noteStatutes;
+
+        await note.update({
+            status: statuses[note.status.id]
+        });
+
+        return note;
     }
 }
