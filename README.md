@@ -1,7 +1,8 @@
 <h1>Notion</h1>
 
 ## Description
-<p>Application for notes, similar to Kanban, which you can share with your friends, work on them together, see the progress of their completion, write comments, view reporting and much more</p>
+> [!NOTE]
+> <p>Application for notes, similar to Kanban, which you can share with your friends, work on them together, see the progress of their completion, write comments, view reporting and much more</p>
 
 ## Project setup
 
@@ -23,7 +24,8 @@ $ npm run start:prod
 ```
 
 ## <a href="https://www.docker.com/">Docker</a>
-<p>Now, when you run the project again, the database will be created. I'll fix it soon</p>
+> [!WARNING]
+> <p>Now, when you run the project again, the database will be created. I'll fix it soon</p>
 
 ```bash
 # build 
