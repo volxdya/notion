@@ -9,6 +9,7 @@ import { UserModel } from '../user/user.model';
 @Module({
   imports: [SequelizeModule.forFeature([InviteModel, GroupModel, UserModel])],
   providers: [InviteService],
-  controllers: [InviteController]
+  controllers: [InviteController],
+  exports: [InviteService]
 })
 export class InviteModule { }

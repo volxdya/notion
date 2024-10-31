@@ -1,16 +1,19 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { GroupModel } from './group.model';
 import { CreateGroupDto } from './dto/CreateGroupDto';
 import { UserService } from '../user/user.service';
 import { UserModel } from '../user/user.model';
 import { AddToGroupDto } from './dto/AddToGroupDto';
+import { InviteService } from '../invite/invite.service';
+import { InviteModel } from '../invite/invite.model';
 
 @Injectable()
 export class GroupService {
     constructor(
         @InjectModel(GroupModel) private readonly groupModel: typeof GroupModel,
-        private readonly userService: UserService
+        private readonly userService: UserService,
+        private readonly inviteService: InviteService
     ) { }
 
     async getOne(groupId: number) {
@@ -31,19 +34,38 @@ export class GroupService {
 
     /* 
     TODO:
+
+    1.
         Написать логику инвайтов по ссылке и QR CODE
         ссылка содержит ограниченное количество прглашений, отправителя и много meta-datas 
-     */
+
+    2. Написать логику обновления юзеров группы
+        
+    */
     async addToGroup(dto: AddToGroupDto) {
-        const { userId, groupId } = dto;
+        const { userId, inviteId } = dto;
 
-        const user: UserModel = await this.userService.getById(userId);
-        const group: GroupModel = await this.getOne(groupId);
+        const invite: InviteModel = await this.inviteService.getById(inviteId);
 
-        await user.$add('groups', [group]);
-        await group.$add('users', [user]);
+        if (invite.maxActivations > 0) {
+            const user: UserModel = await this.userService.getById(userId);
+            const group: GroupModel = await this.getOne(invite.groupId);
 
-        return group;
+            await invite.update({
+                maxActivations: invite.maxActivations - 1
+            });
+
+            // await user.$add('groups', [group]);
+            // await group.$add('users', [user]);
+
+            return {
+                user,
+                invite,
+                group
+            };
+        }
+
+        return 'Invite is invalid';
     }
 
     async getAll() {
