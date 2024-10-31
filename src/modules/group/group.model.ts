@@ -3,6 +3,7 @@ import { UserModel } from "../user/user.model";
 import { UserGroupsModel } from "./user-groups.model";
 import { InviteModel } from "../invite/invite.model";
 import { ApiProperty } from "@nestjs/swagger";
+import { NoteModel } from "../note/note.model";
 
 interface IGroupModel {
     title: string;
@@ -35,4 +36,8 @@ export class GroupModel extends Model<GroupModel, IGroupModel> {
     @HasMany(() => InviteModel)
     @ApiProperty({ description: 'array of invites group', type: Array<InviteModel> })
     invites: InviteModel[];
+
+    @HasMany(() => NoteModel)
+    @ApiProperty({ description: 'array of notes group', type: Array<NoteModel> })
+    notes: NoteModel[];
 }

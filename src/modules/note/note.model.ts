@@ -1,6 +1,7 @@
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
 import { UserModel } from "../user/user.model";
 import { ApiProperty } from "@nestjs/swagger";
+import { GroupModel } from "../group/group.model";
 
 interface INoteModel {
     title: string;
@@ -50,6 +51,15 @@ export class NoteModel extends Model<NoteModel, INoteModel> {
     @BelongsTo(() => UserModel)
     @ApiProperty({ description: 'note owner', type: UserModel })
     user: UserModel;
+    
+    @ForeignKey(() => GroupModel)
+    @Column({ type: DataType.INTEGER })
+    @ApiProperty({ example: 1, description: 'note group id' })
+    groupId: number;
+
+    @BelongsTo(() => GroupModel)
+    @ApiProperty({ description: 'note in group', type: GroupModel })
+    group: GroupModel;
 
     @Column({ type: DataType.JSON, defaultValue: noteStatutes[0] })
     @ApiProperty({ example: '1-4', description: 'status of compelete the note' })

@@ -8,10 +8,11 @@ import { UserGroupsModel } from './user-groups.model';
 import { UserModule } from '../user/user.module';
 import { InviteModel } from '../invite/invite.model';
 import { InviteModule } from '../invite/invite.module';
+import { NoteModel } from '../note/note.model';
 
 @Module({
   imports: [
-    SequelizeModule.forFeature([UserModel, GroupModel, UserGroupsModel, InviteModel]),
+    SequelizeModule.forFeature([UserModel, GroupModel, UserGroupsModel, InviteModel, NoteModel]),
     UserModule,
     InviteModule
   ],
