@@ -20,4 +20,11 @@ export class NoteController {
     async changeStatus(@Param('noteId') noteId: number) {
         return this.noteService.changeStatusNote(noteId);
     }
+
+    @Get('/get_user_notes/:userId')
+    getUserNotes(@Param('userId') userId: number) {
+        return this.noteService.getUserNotes(userId);
+    }
+
+    
 }

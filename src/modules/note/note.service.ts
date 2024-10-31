@@ -25,4 +25,8 @@ export class NoteService {
 
         return note;
     }
+
+    async getUserNotes(userId: number) {
+        return this.noteModel.findAll({ where: { userId: userId, groupId: null } });
+    }
 }
