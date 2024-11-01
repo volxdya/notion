@@ -48,6 +48,6 @@ $ docker-compose up
 ## Migrations
 <p>Check <a href="https://github.com/volxdya/notion/blob/main/database/README.md">README.md</a> on database directory</p>
 
-## Documntation API
+## Documentation API
 > [!TIP]
 > You can watch docs api on http://localhost:{{port}}/docs
