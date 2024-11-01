@@ -26,7 +26,7 @@ export class UserModel extends Model<UserModel, IUserModel> {
     password: string;
 
     @Column({ type: DataType.STRING, defaultValue: '' })
-    @ApiProperty({ example: 'http://notionfileapi/avatarUrl/user123', description: 'link to avatar url' })
+    @ApiProperty({ example: 'http://notion-files-api/avatarUrl/user123', description: 'link to avatar url' })
     avatarUrl: string;
 
     @HasMany(() => NoteModel)

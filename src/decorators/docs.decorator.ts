@@ -2,7 +2,7 @@ import { applyDecorators, Type } from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 interface IDocsParams {
-    summary: string,
+    summary?: string,
     status?: number,
     description?: string,
     isArray?: boolean,
