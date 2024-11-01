@@ -10,6 +10,7 @@ import { GroupModule } from './group/group.module';
 import { InviteModule } from './invite/invite.module';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { THROTTLER_CONFIG } from 'cfg/throttler.config';
+import { CommentaryModule } from './commentary/commentary.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { THROTTLER_CONFIG } from 'cfg/throttler.config';
     AuthModule,
     JwtModule,
     GroupModule,
-    InviteModule
+    InviteModule,
+    CommentaryModule
   ],
 })
 export class AppModule { }

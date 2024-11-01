@@ -4,6 +4,7 @@ import { GroupModel } from "../group/group.model";
 import { UserGroupsModel } from "../group/user-groups.model";
 import { InviteModel } from "../invite/invite.model";
 import { ApiProperty } from "@nestjs/swagger";
+import { CommentaryModel } from "../commentary/commentary.model";
 
 interface IUserModel {
     userName: string;
@@ -43,4 +44,8 @@ export class UserModel extends Model<UserModel, IUserModel> {
 
     @BelongsToMany(() => GroupModel, () => UserGroupsModel)
     groups: GroupModel[];
+
+    @HasMany(() => CommentaryModel)
+    @ApiProperty({ description: 'array of ivnites, which user have', type: Array<CommentaryModel> })
+    commentaries: CommentaryModel[];
 }

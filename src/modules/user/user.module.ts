@@ -7,11 +7,20 @@ import { NoteModel } from '../note/note.model';
 import { GroupModel } from '../group/group.model';
 import { UserGroupsModel } from '../group/user-groups.model';
 import { InviteModel } from '../invite/invite.model';
+import { CommentaryModel } from '../commentary/commentary.model';
 
 @Module({
-  imports: [SequelizeModule.forFeature([UserModel, NoteModel, GroupModel, UserGroupsModel, InviteModel])],
+  imports: [
+    SequelizeModule.forFeature([
+      UserModel,
+      NoteModel,
+      GroupModel,
+      UserGroupsModel,
+      InviteModel,
+      CommentaryModel
+    ])],
   providers: [UserService],
   controllers: [UserController],
   exports: [UserService]
 })
-export class UserModule {}
+export class UserModule { }

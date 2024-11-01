@@ -1,7 +1,8 @@
-import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { UserModel } from "../user/user.model";
 import { ApiProperty } from "@nestjs/swagger";
 import { GroupModel } from "../group/group.model";
+import { CommentaryModel } from "../commentary/commentary.model";
 
 interface INoteModel {
     title: string;
@@ -51,7 +52,7 @@ export class NoteModel extends Model<NoteModel, INoteModel> {
     @BelongsTo(() => UserModel)
     @ApiProperty({ description: 'note owner', type: UserModel })
     user: UserModel;
-    
+
     @ForeignKey(() => GroupModel)
     @Column({ type: DataType.INTEGER })
     @ApiProperty({ example: 1, description: 'note group id' })
@@ -64,4 +65,8 @@ export class NoteModel extends Model<NoteModel, INoteModel> {
     @Column({ type: DataType.JSON, defaultValue: noteStatutes[0] })
     @ApiProperty({ example: '1-4', description: 'status of compelete the note' })
     status: INoteStatus
+
+    @HasMany(() => CommentaryModel)
+    @ApiProperty({ description: 'array of commentaries', type: Array<CommentaryModel> })
+    commentaries: CommentaryModel[];
 }
