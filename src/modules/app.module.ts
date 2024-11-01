@@ -8,6 +8,8 @@ import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { GroupModule } from './group/group.module';
 import { InviteModule } from './invite/invite.module';
+import { ThrottlerModule } from '@nestjs/throttler';
+import { THROTTLER_CONFIG } from 'cfg/throttler.config';
 
 @Module({
   imports: [
@@ -15,6 +17,7 @@ import { InviteModule } from './invite/invite.module';
     ConfigModule.forRoot({
       envFilePath: '.env'
     }),
+    ThrottlerModule.forRoot(THROTTLER_CONFIG),
     UserModule,
     NoteModule,
     AuthModule,
