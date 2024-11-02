@@ -8,9 +8,10 @@ import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { GroupModule } from './group/group.module';
 import { InviteModule } from './invite/invite.module';
-import { ThrottlerModule } from '@nestjs/throttler';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { THROTTLER_CONFIG } from 'cfg/throttler.config';
 import { CommentaryModule } from './commentary/commentary.module';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -27,5 +28,9 @@ import { CommentaryModule } from './commentary/commentary.module';
     InviteModule,
     CommentaryModule
   ],
+  providers: [{
+    provide: APP_GUARD,
+    useClass: ThrottlerGuard
+  }]
 })
-export class AppModule { }
+export class AppModule {}

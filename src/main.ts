@@ -2,8 +2,9 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './modules/app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { HttpExceptionFilter } from './filters/http-exception.filter';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { SwaggerModule } from '@nestjs/swagger';
 import { SWAGGER_CONFIG } from 'cfg/swagger.config';
+import * as cookieParser from 'cookie-parser';
 
 declare const module: any;
 
@@ -21,6 +22,7 @@ async function bootstrap() {
 
   app.useGlobalFilters(new HttpExceptionFilter())
   app.useGlobalPipes(new ValidationPipe());
+  app.use(cookieParser());
 
   if (module.hot) {
     module.hot.accept();
