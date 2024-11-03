@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CommentaryService } from './commentary.service';
 import { CreateCommentaryDto } from './dto/CreateCommentaryDto';
-import { Docs } from 'src/decorators/docs.decorator';
+import { Docs } from '../../decorators/docs.decorator';
 
 @Controller('commentary')
 export class CommentaryController {

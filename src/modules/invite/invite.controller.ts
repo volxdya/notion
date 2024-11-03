@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { InviteService } from './invite.service';
 import { CreateInviteDto } from './dto/CreateInviteDto';
-import { Docs } from 'src/decorators/docs.decorator';
+import { Docs } from '../../decorators/docs.decorator';
 
 @Controller('invite')
 export class InviteController {

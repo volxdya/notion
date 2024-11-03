@@ -2,8 +2,8 @@ import { Body, Controller, Get, Post, Put } from '@nestjs/common';
 import { GroupService } from './group.service';
 import { CreateGroupDto } from './dto/CreateGroupDto';
 import { AddToGroupDto } from './dto/AddToGroupDto';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { Docs } from 'src/decorators/docs.decorator';
+import { ApiTags } from '@nestjs/swagger';
+import { Docs } from '../../decorators/docs.decorator';
 
 @Controller('group')
 @ApiTags('Groups')

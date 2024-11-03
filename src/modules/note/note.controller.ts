@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { NoteService } from './note.service';
 import { CreateNoteDto } from './dto/CreateNoteDto';
-import { Docs } from 'src/decorators/docs.decorator';
+import { Docs } from '../../decorators/docs.decorator';
 
 @Controller('note')
 export class NoteController {
