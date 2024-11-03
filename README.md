@@ -45,6 +45,19 @@ $ docker-compose up
 - [X] Jest
 - [X] Swagger
 
+## Testing
+<p>On my application i use jest unit-testing</p>
+
+```bash
+# Testing all application
+$ npm run test
+```
+
+```bash
+# Testing separate modules
+$ npx jest modules/{name of module}/tests
+```
+
 ## Migrations
 <p>Check <a href="https://github.com/volxdya/notion/blob/main/database/README.md">README.md</a> on database directory</p>
 
