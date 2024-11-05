@@ -8,7 +8,6 @@ describe('AuthService', () => {
   let userService: UserService;
   let jwtService: JwtService;
 
-  let mockUserService = {};
   let mockJwtService = {};
 
   beforeEach(async () => {
@@ -17,7 +16,7 @@ describe('AuthService', () => {
         AuthService,
         {
           provide: UserService,
-          useValue: mockUserService
+          useValue: userService
         },
         {
           provide: JwtService,

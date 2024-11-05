@@ -33,4 +33,4 @@ import { APP_GUARD } from '@nestjs/core';
     useClass: ThrottlerGuard
   }]
 })
-export class AppModule {}
+export class AppModule { }

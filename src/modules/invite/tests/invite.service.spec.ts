@@ -2,17 +2,11 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { InviteService } from '../invite.service';
 import { InviteModel } from '../invite.model';
 import { getModelToken } from '@nestjs/sequelize';
+import { mockInviteModel } from '../../../types/mock-model';
 
 describe('InviteService', () => {
   let service: InviteService;
   let model: typeof InviteModel;
-
-  let mockInviteModel = {
-    findAll: jest.fn(),
-    fineOne: jest.fn(),
-    create: jest.fn(),
-    destroy: jest.fn()
-  }
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

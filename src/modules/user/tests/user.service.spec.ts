@@ -3,16 +3,11 @@ import { UserService } from '../user.service';
 import { UserModel } from '../user.model';
 import { getModelToken } from '@nestjs/sequelize';
 import { CreateUserDto } from '../dto/CreateUserDto';
+import { mockUserModel } from '../../../types/mock-model';
 
 describe('UserService', () => {
   let service: UserService;
   let model: typeof UserModel;
-
-  const mockUserModel = {
-    create: jest.fn(),
-    findOne: jest.fn(),
-    findAll: jest.fn(),
-  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

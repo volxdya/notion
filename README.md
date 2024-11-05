@@ -13,13 +13,13 @@ $ npm install
 ## Compile and run the project
 
 ```bash
-# development
+# Development
 $ npm run start
 
-# watch mode
+# Watch mode
 $ npm run start:dev
 
-# production mode
+# Production mode
 $ npm run start:prod
 ```
 
@@ -28,10 +28,10 @@ $ npm run start:prod
 > <p>Now, when you run the project again, the database will be created. I'll fix it soon</p>
 
 ```bash
-# build 
+# Build 
 $ docker-compose build 
 
-# start project
+# Start project
 $ docker-compose up
 ```
 

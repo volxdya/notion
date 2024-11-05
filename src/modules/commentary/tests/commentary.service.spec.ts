@@ -2,15 +2,11 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { CommentaryService } from '../commentary.service';
 import { CommentaryModel } from '../commentary.model';
 import { getModelToken } from '@nestjs/sequelize';
+import { mockCommentaryModel } from '../../../types/mock-model';
 
 describe('CommentaryService', () => {
   let service: CommentaryService;
   let commentaryModel: typeof CommentaryModel;
-
-  let mockCommentaryModel = {
-    findAll: jest.fn(),
-    create: jest.fn()
-  }
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
