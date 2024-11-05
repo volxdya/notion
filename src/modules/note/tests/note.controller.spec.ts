@@ -1,13 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { NoteController } from '../note.controller';
 import { NoteService } from '../note.service';
-import { MockService } from '../../../types/mock-service';
+import { mockNoteService } from '../../../utils/tests/mock-service';
 
 describe('NoteController', () => {
   let controller: NoteController;
   let service: NoteService;
-
-  const mockNoteService = new MockService(['changeStatusNote', 'getUserNotes']);
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

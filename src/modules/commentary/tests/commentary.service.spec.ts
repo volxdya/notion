@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { CommentaryService } from '../commentary.service';
 import { CommentaryModel } from '../commentary.model';
 import { getModelToken } from '@nestjs/sequelize';
-import { mockCommentaryModel } from '../../../types/mock-model';
+import { mockCommentaryModel } from '../../../utils/tests/mock-model';
 
 describe('CommentaryService', () => {
   let service: CommentaryService;

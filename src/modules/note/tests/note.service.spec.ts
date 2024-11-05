@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { NoteService } from '../note.service';
 import { NoteModel } from '../note.model';
 import { getModelToken } from '@nestjs/sequelize';
-import { mockNoteModel } from '../../../types/mock-model';
+import { mockNoteModel } from '../../../utils/tests/mock-model';
 
 describe('NoteService', () => {
   let service: NoteService;

@@ -1,17 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { InviteController } from '../invite.controller';
 import { InviteService } from '../invite.service';
+import { mockInviteService } from '../../../utils/tests/mock-service';
 
 describe('InviteController', () => {
   let controller: InviteController;
   let inviteService: InviteService;
-
-  let mockInviteService = {
-    create: jest.fn(),
-    getAll: jest.fn(),
-    getById: jest.fn(),
-    deleteInvite: jest.fn(),
-  }
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

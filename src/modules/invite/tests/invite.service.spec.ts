@@ -2,7 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { InviteService } from '../invite.service';
 import { InviteModel } from '../invite.model';
 import { getModelToken } from '@nestjs/sequelize';
-import { mockInviteModel } from '../../../types/mock-model';
+import { mockInviteModel } from '../../../utils/tests/mock-model';
+
 
 describe('InviteService', () => {
   let service: InviteService;

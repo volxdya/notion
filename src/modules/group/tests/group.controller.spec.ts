@@ -1,17 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { GroupController } from '../group.controller';
 import { GroupService } from '../group.service';
+import { mockGroupService } from '../../../utils/tests/mock-service';
 
 describe('GroupController', () => {
   let controller: GroupController;
   let groupService: GroupService;
-
-  let mockGroupService = {
-    getById: jest.fn(),
-    create: jest.fn(),
-    getAll: jest.fn(),
-    addToGroup: jest.fn(),
-  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

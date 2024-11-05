@@ -4,21 +4,18 @@ import { GroupModel } from '../group.model';
 import { UserService } from '../../user/user.service';
 import { InviteService } from '../../invite/invite.service';
 import { getModelToken } from '@nestjs/sequelize';
+import {
+  mockInviteService,
+  mockUserService
+}
+  from '../../../utils/tests/mock-service';
+import { mockGroupModel } from '../../../utils/tests/mock-model';
 
 describe('GroupService', () => {
   let groupService: GroupService;
   let userService: UserService;
   let inviteService: InviteService;
   let groupModel: typeof GroupModel;
-
-  let mockGroupModel = {
-    findOne: jest.fn(),
-    create: jest.fn(),
-    findAll: jest.fn(),
-  }
-
-  const mockUserService = {};
-  const mockInviteService = {};
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

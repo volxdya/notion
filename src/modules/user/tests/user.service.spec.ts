@@ -3,7 +3,7 @@ import { UserService } from '../user.service';
 import { UserModel } from '../user.model';
 import { getModelToken } from '@nestjs/sequelize';
 import { CreateUserDto } from '../dto/CreateUserDto';
-import { mockUserModel } from '../../../types/mock-model';
+import { mockUserModel } from '../../../utils/tests/mock-model';
 
 describe('UserService', () => {
   let service: UserService;
