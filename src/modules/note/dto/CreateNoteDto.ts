@@ -13,5 +13,4 @@ export class CreateNoteDto {
     @IsString({ message: 'Title of note must be a string' })
     @ApiProperty({ description: 'Title of note', example: "Do sql requests to migrate user table" })
     readonly title: string;
-    
 }

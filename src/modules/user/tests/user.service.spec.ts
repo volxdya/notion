@@ -40,6 +40,8 @@ describe('UserService', () => {
         password: 'zxc@@qweq'
       }
 
+      expect(dto.password.length).toBeLessThan(32);
+
       const createdUser = { ...dto, id: 1 };
       mockUserModel.create.mockResolvedValue(createdUser);
 
