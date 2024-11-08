@@ -16,7 +16,12 @@ export class InviteService {
     }
 
     async getById(inviteId: number) {
-        return this.ivniteModel.findOne({ where: { id: inviteId }, include: { all: true } });
+        return this.ivniteModel.findOne(
+            {
+                where: { id: inviteId },
+                include: { all: true }
+            }
+        );
     }
 
     async deleteInvite(inviteId: number) {

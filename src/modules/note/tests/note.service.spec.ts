@@ -100,7 +100,7 @@ describe('NoteService', () => {
         }
       )
     })
-  })
+  });
 
   describe('change note status', () => {
     it('should be change note status', async () => {
@@ -150,5 +150,60 @@ describe('NoteService', () => {
         status: statuses[oldStatus]
       });
     })
-  })
+  });
+
+  describe('get user notes', () => {
+    it('should be get a user notes', async () => {
+      const userId: number = 1;
+
+      const groups = [
+        {
+          id: 1,
+          title: "qweqweqweqwe",
+          userId: 1,
+          groupId: null,
+          status: {
+            id: 1,
+            status: "In order"
+          },
+        },
+        {
+          id: 2,
+          title: "qweqweqweqwe",
+          userId: 1,
+          groupId: null,
+          status: {
+            id: 1,
+            status: "In order"
+          },
+        },
+        {
+          id: 3,
+          title: "qweqweqweqwe",
+          userId: 1,
+          groupId: null,
+          status: {
+            id: 1,
+            status: "In order"
+          },
+        },
+      ];
+
+      mockNoteModel.findAll.mockResolvedValue(groups);
+      const result = await service.getUserNotes(userId);
+
+      const fakeStatusNotes: boolean[] =
+        result.map((item) => item.status.id > 4)
+          .filter((item) => item != false);
+
+      expect(fakeStatusNotes.length).toBeLessThan(1);
+      expect(result).toEqual(groups);
+      expect(mockNoteModel.findAll).toHaveBeenCalledWith({
+        where: {
+          userId: 1,
+          groupId: null
+        },
+      });
+    })
+  });
 });
