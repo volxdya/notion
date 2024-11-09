@@ -37,9 +37,8 @@ export class AuthController {
         @Res({ passthrough: true }) response: Response
     ) {
         const { token }: IToken = await this.authService.register(dto);
-
         await this.setCookieToken(response, token);
-
+        
         return 'Regisrated';
     }
 }

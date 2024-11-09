@@ -84,7 +84,7 @@ describe('NoteService', () => {
         id: noteId,
         title: 'test',
         status: {
-          id: 1,
+          id: 1,  
           status: 'in order'
         }
       }

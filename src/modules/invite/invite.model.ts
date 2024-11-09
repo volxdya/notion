@@ -9,7 +9,7 @@ interface IInviteModel {
 
 }
 
-@Table({ tableName: 'ivnites' })
+@Table({ tableName: 'invite' })
 export class InviteModel extends Model<InviteModel, IInviteModel> {
     @Column({ type: DataType.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true })
     @ApiProperty({ example: 1, description: 'unique id ivnite' })

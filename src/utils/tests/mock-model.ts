@@ -8,6 +8,7 @@ class MockModel {
     create = jest.fn();
     findAll = jest.fn();
     findOne = jest.fn();
+    destroy = jest.fn();
 }
 
 export const mockUserModel = new MockModel();
