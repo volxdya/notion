@@ -8,6 +8,7 @@ import { GroupModel } from '../group/group.model';
 import { UserGroupsModel } from '../group/user-groups.model';
 import { InviteModel } from '../invite/invite.model';
 import { CommentaryModel } from '../commentary/commentary.model';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
@@ -18,7 +19,11 @@ import { CommentaryModel } from '../commentary/commentary.model';
       UserGroupsModel,
       InviteModel,
       CommentaryModel
-    ])],
+    ]),
+    MulterModule.register({
+      dest: '/upload',
+    })
+  ],
   providers: [UserService],
   controllers: [UserController],
   exports: [UserService]

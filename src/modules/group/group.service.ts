@@ -1,4 +1,4 @@
-import { HttpException, Injectable } from '@nestjs/common';
+import { HttpException, Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { GroupModel } from './group.model';
 import { CreateGroupDto } from './dto/CreateGroupDto';
@@ -7,6 +7,7 @@ import { UserModel } from '../user/user.model';
 import { AddToGroupDto } from './dto/AddToGroupDto';
 import { InviteService } from '../invite/invite.service';
 import { InviteModel } from '../invite/invite.model';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
 
 @Injectable()
 export class GroupService {
@@ -17,7 +18,10 @@ export class GroupService {
     ) { }
 
     async getOne(groupId: number) {
-        return this.groupModel.findOne({ where: { id: groupId }, include: { all: true } });
+        return this.groupModel.findOne({
+            where: { id: groupId },
+            include: { all: true }
+        });
     }
 
     async create(dto: CreateGroupDto) {
@@ -32,16 +36,6 @@ export class GroupService {
         return group;
     }
 
-    /* 
-    TODO:
-
-    1.
-        Написать логику инвайтов по ссылке и QR CODE
-        ссылка содержит ограниченное количество прглашений, отправителя и много meta-datas 
-
-    2. Написать логику обновления юзеров группы
-        
-    */
     async addToGroup(dto: AddToGroupDto) {
         const { userId, inviteId } = dto;
 

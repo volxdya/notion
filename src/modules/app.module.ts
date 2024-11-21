@@ -12,10 +12,13 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { THROTTLER_CONFIG } from 'cfg/throttler.config';
 import { CommentaryModule } from './commentary/commentary.module';
 import { APP_GUARD } from '@nestjs/core';
+import { FilesModule } from './files/files.module';
+import { TestModule } from './test/test.module';
 
 @Module({
   imports: [
     SequelizeModule.forRoot(POSTGRES_CONFIG),
+
     ConfigModule.forRoot({
       envFilePath: '.env'
     }),
@@ -26,7 +29,9 @@ import { APP_GUARD } from '@nestjs/core';
     JwtModule,
     GroupModule,
     InviteModule,
-    CommentaryModule
+    CommentaryModule,
+    FilesModule,
+    TestModule
   ],
   providers: [{
     provide: APP_GUARD,
